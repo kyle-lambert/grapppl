@@ -1,5 +1,5 @@
 {
-  "name": "saas-app",
+  "name": "grapppl",
   "version": "0.1.0",
   "private": true,
   "engineStrict": true,
@@ -14,8 +14,6 @@
     "format": "prettier -w ."
   },
   "dependencies": {
-    "@supabase/ssr": "^0.4.0",
-    "@supabase/supabase-js": "^2.45.0",
     "@workos-inc/node": "^7.17.1",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
