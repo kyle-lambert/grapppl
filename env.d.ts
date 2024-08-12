@@ -1,0 +1,9 @@
+namespace NodeJS {
+  interface ProcessEnv {
+    RESEND_API_KEY: string;
+    RESEND_SENDER_ADDRESS: string;
+    RESEND_RECEIVER_ADDRESS: string;
+    WORKOS_API_KEY: string;
+    WORKOS_CLIENT_ID: string;
+  }
+}
