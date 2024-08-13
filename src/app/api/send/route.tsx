@@ -3,7 +3,7 @@ import LoginCodeEmail from "@/emails/login-code";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-export async function POST() {
+export async function GET() {
   try {
     if (process.env.NODE_ENV === "development") {
       const { data, error } = await resend.emails.send({
@@ -19,7 +19,9 @@ export async function POST() {
       return Response.json(data);
     }
 
-    return Response.json({ message: "Email testing only runs in development" });
+    return Response.json({
+      message: "Email testing only available in development mode.",
+    });
   } catch (error) {
     return Response.json({ error }, { status: 500 });
   }
