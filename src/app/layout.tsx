@@ -1,13 +1,10 @@
 import type { Metadata } from "next";
-import { Inter as FontSans } from "next/font/google";
+import { GeistSans } from "geist/font/sans";
+import { GeistMono } from "geist/font/mono";
+
 import "./globals.css";
 
-import { cn } from "@/utils/cn";
-
-const fontSans = FontSans({
-  subsets: ["latin"],
-  variable: "--font-sans",
-});
+import { ClientProviders } from "@/app/providers";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -20,9 +17,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={cn("min-h-screen font-sans", fontSans.variable)}>
-        {children}
+    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
+      <body className="min-h-screen font-sans">
+        <ClientProviders>{children}</ClientProviders>
       </body>
     </html>
   );
