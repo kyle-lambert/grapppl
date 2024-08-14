@@ -1,29 +1,28 @@
 "use client";
 
 import { cn } from "@/utils/cn";
+import { StylePropOverides } from "@/utils/types";
 import { cva, VariantProps } from "class-variance-authority";
-import React, { Ref } from "react";
+import React, { forwardRef } from "react";
 import {
   Button as AriaButton,
   type ButtonProps as AriaButtonProps,
 } from "react-aria-components";
 
 const buttonStyles = cva(
-  "inline-flex items-center justify-center rounded-xl border border-transparent text-sm font-medium leading-5 tracking-wide outline-none transition rac-focus-visible:outline-4 rac-focus-visible:outline-offset-0 rac-focus-visible:outline-blue-300 rac-disabled:cursor-not-allowed rac-disabled:border-zinc-200 rac-disabled:bg-white rac-disabled:text-zinc-300",
+  "inline-flex items-center justify-center rounded-full border border-transparent font-medium leading-5 tracking-wide outline-none data-[disabled]:cursor-not-allowed data-[disabled]:border-zinc-200 data-[disabled]:bg-white data-[disabled]:text-zinc-300 data-[focus-visible]:outline data-[focus-visible]:outline-blue-600",
 
   {
     variants: {
       appearance: {
-        primary: "bg-zinc-900 text-zinc-100 rac-hover:bg-zinc-800",
+        primary: "bg-zinc-900 text-white data-[hovered]:bg-zinc-800",
         secondary:
-          "border-zinc-200 bg-white text-zinc-800 rac-hover:border-zinc-300",
-        tertiary:
-          "border-zinc-200 bg-white text-violet-500 rac-hover:border-zinc-300",
+          "border-zinc-200 bg-white text-zinc-800 data-[hovered]:bg-zinc-100",
+        brand: "bg-blue-600 text-white data-[hovered]:bg-blue-500",
       },
       size: {
-        sm: "px-2 py-1",
-        md: "px-3 py-2",
-        lg: "px-4 py-3",
+        md: "px-4 py-2.5 text-sm",
+        lg: "px-5 py-3.5",
       },
     },
     defaultVariants: {
@@ -33,30 +32,27 @@ const buttonStyles = cva(
   },
 );
 
-export type ButtonProps = {
-  customRef?: Ref<HTMLButtonElement>;
-} & AriaButtonProps &
-  VariantProps<typeof buttonStyles>;
+export type ButtonProps = StylePropOverides<
+  AriaButtonProps,
+  VariantProps<typeof buttonStyles>
+>;
 
-export function Button({
-  customRef,
-  className,
-  appearance,
-  size,
-  ...props
-}: ButtonProps) {
-  return (
-    <AriaButton
-      ref={customRef}
-      className={cn(
-        buttonStyles({
-          appearance,
-          size,
-        }),
-        className,
-      )}
-      {...props}
-    />
-  );
-}
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ className, size, appearance, ...props }, ref) => {
+    return (
+      <AriaButton
+        ref={ref}
+        className={cn(
+          buttonStyles({
+            appearance,
+            size,
+          }),
+          className,
+        )}
+        {...props}
+      />
+    );
+  },
+);
+
 Button.displayName = "Button";

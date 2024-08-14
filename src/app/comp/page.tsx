@@ -1,5 +1,6 @@
 import React from "react";
 import { Button } from "@/components/button";
+import { Input } from "@/components/input";
 
 export default function Page() {
   return (
@@ -7,22 +8,39 @@ export default function Page() {
       <div className="flex items-end gap-3">
         <Button appearance="primary">Primary</Button>
         <Button appearance="secondary">Secondary</Button>
-        <Button appearance="tertiary">Tertiary</Button>
+        <Button appearance="brand">Brand</Button>
       </div>
       <div className="flex items-end gap-3">
-        <Button size="sm">Small</Button>
-        <Button size="md">Medium</Button>
-        <Button size="lg">Large</Button>
+        <Button size="lg" appearance="primary">
+          Primary
+        </Button>
+        <Button size="lg" appearance="secondary">
+          Secondary
+        </Button>
+        <Button size="lg" appearance="brand">
+          Brand
+        </Button>
       </div>
       <div className="flex items-end gap-3">
         <Button isDisabled appearance="primary">
-          Primary: Disabled
+          Primary
         </Button>
         <Button isDisabled appearance="secondary">
-          Secondary: Disabled
+          Secondary
         </Button>
-        <Button isDisabled appearance="tertiary">
-          Tertiary: Disabled
+        <Button isDisabled appearance="brand">
+          Brand
+        </Button>
+      </div>
+      <div className="flex items-end gap-3">
+        <Button isDisabled size="lg" appearance="primary">
+          Primary
+        </Button>
+        <Button isDisabled size="lg" appearance="secondary">
+          Secondary
+        </Button>
+        <Button isDisabled size="lg" appearance="brand">
+          Brand
         </Button>
       </div>
     </div>
