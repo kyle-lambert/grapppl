@@ -10,24 +10,24 @@ import {
 } from "react-aria-components";
 
 const buttonStyles = cva(
-  "inline-flex items-center justify-center rounded-full border border-transparent font-medium leading-5 tracking-wide outline-none data-[disabled]:cursor-not-allowed data-[disabled]:border-zinc-200 data-[disabled]:bg-white data-[disabled]:text-zinc-300 data-[focus-visible]:outline data-[focus-visible]:outline-blue-600",
+  "inline-flex items-center justify-center rounded-full border border-transparent font-medium leading-5 tracking-wide shadow-sm outline-none transition-colors data-[disabled]:cursor-not-allowed data-[disabled]:border-gray-200 data-[disabled]:bg-white data-[disabled]:text-gray-300 data-[focus-visible]:outline data-[focus-visible]:outline-blue-500",
 
   {
     variants: {
       appearance: {
-        primary: "bg-zinc-900 text-white data-[hovered]:bg-zinc-800",
+        primary: "bg-gray-900 text-white data-[hovered]:bg-gray-800",
         secondary:
-          "border-zinc-200 bg-white text-zinc-800 data-[hovered]:bg-zinc-100",
-        brand: "bg-blue-600 text-white data-[hovered]:bg-blue-500",
+          "border-gray-200 bg-white text-gray-800 data-[hovered]:bg-gray-100",
+        brand: "bg-blue-500 text-white data-[hovered]:bg-blue-400",
       },
       size: {
-        md: "px-4 py-2.5 text-sm",
-        lg: "px-5 py-3.5",
+        small: "h-9 px-4 text-sm",
+        default: "h-11 px-4",
       },
     },
     defaultVariants: {
       appearance: "primary",
-      size: "md",
+      size: "default",
     },
   },
 );

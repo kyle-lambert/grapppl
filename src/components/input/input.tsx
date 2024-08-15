@@ -10,16 +10,20 @@ import { cn } from "@/utils/cn";
 import { StylePropOverides } from "@/utils/types";
 
 const inputStyles = cva(
-  "rounded-xl border border-zinc-200 bg-white leading-5 text-zinc-800 placeholder-zinc-400 outline-none data-[disabled]:cursor-not-allowed data-[focused]:border-zinc-300 data-[hovered]:border-zinc-300 data-[invalid]:border-red-500 data-[disabled]:bg-zinc-100 data-[disabled]:text-zinc-400",
+  "rounded-xl border leading-5 text-gray-800 placeholder-gray-400 shadow-sm outline-none transition-colors data-[disabled]:cursor-not-allowed data-[invalid]:border-red-500 data-[disabled]:bg-gray-100 data-[disabled]:text-gray-400 data-[focus-visible]:ring data-[focus-visible]:ring-inset",
   {
     variants: {
+      appearance: {
+        primary:
+          "border-gray-200 bg-white data-[focused]:border-gray-300 enabled:data-[hovered]:border-gray-300",
+      },
       size: {
-        md: "px-3 py-2.5 text-sm",
-        lg: "px-3.5 py-3.5",
+        small: "h-10 px-3 text-sm",
+        default: "h-12 px-3",
       },
     },
     defaultVariants: {
-      size: "md",
+      size: "default",
     },
   },
 );
@@ -30,11 +34,11 @@ export type InputProps = StylePropOverides<
 >;
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ className, size, ...props }, ref) => {
+  ({ className, size, appearance, ...props }, ref) => {
     return (
       <AriaInput
         ref={ref}
-        className={cn(inputStyles({ size }), className)}
+        className={cn(inputStyles({ size, appearance }), className)}
         {...props}
       />
     );

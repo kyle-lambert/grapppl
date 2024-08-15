@@ -6,42 +6,66 @@ export default function Page() {
   return (
     <div className="flex flex-col gap-4 p-6">
       <div className="flex items-end gap-3">
-        <Button appearance="primary">Primary</Button>
-        <Button appearance="secondary">Secondary</Button>
-        <Button appearance="brand">Brand</Button>
-      </div>
-      <div className="flex items-end gap-3">
-        <Button size="lg" appearance="primary">
+        <Button size="small" appearance="primary">
           Primary
         </Button>
-        <Button size="lg" appearance="secondary">
+        <Button size="small" appearance="secondary">
           Secondary
         </Button>
-        <Button size="lg" appearance="brand">
+        <Button size="small" appearance="brand">
           Brand
         </Button>
       </div>
       <div className="flex items-end gap-3">
-        <Button isDisabled appearance="primary">
+        <Button size="default" appearance="primary">
           Primary
         </Button>
-        <Button isDisabled appearance="secondary">
+        <Button size="default" appearance="secondary">
           Secondary
         </Button>
-        <Button isDisabled appearance="brand">
+        <Button size="default" appearance="brand">
           Brand
         </Button>
       </div>
       <div className="flex items-end gap-3">
-        <Button isDisabled size="lg" appearance="primary">
+        <Button isDisabled size="small" appearance="primary">
           Primary
         </Button>
-        <Button isDisabled size="lg" appearance="secondary">
+        <Button isDisabled size="small" appearance="secondary">
           Secondary
         </Button>
-        <Button isDisabled size="lg" appearance="brand">
+        <Button isDisabled size="small" appearance="brand">
           Brand
         </Button>
+      </div>
+      <div className="flex items-end gap-3">
+        <Button isDisabled size="default" appearance="primary">
+          Primary
+        </Button>
+        <Button isDisabled size="default" appearance="secondary">
+          Secondary
+        </Button>
+        <Button isDisabled size="default" appearance="brand">
+          Brand
+        </Button>
+      </div>
+      <div className="flex items-end gap-3">
+        <Input size="small" appearance="primary" placeholder="Primary" />
+        <Input size="default" appearance="primary" placeholder="Primary" />
+      </div>
+      <div className="flex items-end gap-3">
+        <Input
+          disabled
+          size="small"
+          appearance="primary"
+          placeholder="Primary"
+        />
+        <Input
+          disabled
+          size="default"
+          appearance="primary"
+          placeholder="Primary"
+        />
       </div>
     </div>
   );
