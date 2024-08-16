@@ -1,4 +1,5 @@
 const plugin = require("tailwindcss/plugin");
+const ariaComponentsPlugin = require("tailwindcss-react-aria-components");
 
 /** @type {import('tailwindcss').Config} */
 const config = {
@@ -130,6 +131,7 @@ const config = {
     },
   },
   plugins: [
+    ariaComponentsPlugin,
     plugin(({ addVariant, e }: any) => {
       addVariant("sidebar-expanded", ({ modifySelectors, separator }: any) => {
         modifySelectors(

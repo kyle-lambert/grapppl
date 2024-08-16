@@ -1,3 +1,6 @@
+"use client";
+
+import { cn } from "@/utils/cn";
 import { forwardRef } from "react";
 import {
   TextField as AriaTextField,
@@ -6,10 +9,11 @@ import {
 
 export type TextFieldProps = AriaTextFieldProps;
 export const TextField = forwardRef<HTMLDivElement, TextFieldProps>(
-  ({ validationBehavior = "aria", ...props }, ref) => {
+  ({ validationBehavior = "aria", className, ...props }, ref) => {
     return (
       <AriaTextField
         ref={ref}
+        className={cn("flex flex-col gap-1.5", className)}
         validationBehavior={validationBehavior}
         {...props}
       />
