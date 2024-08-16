@@ -10,12 +10,12 @@ import {
 } from "react-aria-components";
 
 const buttonStyles = cva(
-  "inline-flex items-center justify-center rounded-full border border-transparent font-medium leading-5 tracking-wide shadow-sm outline-none transition-colors focus-visible:outline focus-visible:outline-blue-500 disabled:cursor-not-allowed disabled:border-gray-200 disabled:bg-white disabled:text-gray-300",
+  "inline-flex w-full items-center justify-center truncate rounded-full border border-transparent font-medium leading-5 tracking-wide shadow-sm outline-none transition-colors focus-visible:outline focus-visible:outline-blue-500 disabled:cursor-not-allowed disabled:border-gray-200 disabled:bg-white disabled:text-gray-300",
 
   {
     variants: {
       appearance: {
-        primary: "bg-gray-900 text-white hover:bg-gray-800",
+        primary: "bg-gray-950 text-white hover:bg-gray-900",
         secondary: "border-gray-200 bg-white text-gray-800 hover:bg-gray-100",
         brand: "bg-blue-500 text-white hover:bg-blue-400",
       },
