@@ -1,10 +1,22 @@
 import type { Metadata } from "next";
-import { GeistSans } from "geist/font/sans";
-import { GeistMono } from "geist/font/mono";
+import { Inter, Roboto_Mono } from "next/font/google";
 
 import "./globals.css";
 
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+});
+
+const roboto_mono = Roboto_Mono({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-roboto-mono",
+});
+
 import { ClientProviders } from "@/app/providers";
+import { cn } from "@/utils/cn";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,8 +29,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
-      <body className="bg-white font-sans">
+    <html lang="en" className={cn(inter.variable, roboto_mono.variable)}>
+      <body className="bg-white font-sans antialiased">
         <ClientProviders>{children}</ClientProviders>
       </body>
     </html>

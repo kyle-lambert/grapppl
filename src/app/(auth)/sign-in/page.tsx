@@ -25,9 +25,9 @@ export default function SignIn() {
               </div>
 
               <div className="flex items-center justify-center">
-                <span className="h-[1px] flex-1 bg-gradient-to-l from-gray-200 from-80%" />
-                <h3 className="px-2 py-0.5 text-sm text-gray-300">or</h3>
-                <span className="h-[1px] flex-1 bg-gradient-to-r from-gray-200 from-80%" />
+                <span className="h-[2px] flex-1 rounded-full bg-gradient-to-l from-gray-100" />
+                <h3 className="px-2 py-0.5 text-sm text-gray-400">or</h3>
+                <span className="h-[2px] flex-1 rounded-full bg-gradient-to-r from-gray-100" />
               </div>
 
               <div className="flex flex-col gap-4">
@@ -36,7 +36,7 @@ export default function SignIn() {
                 </TextField>
                 <Button>Continue</Button>
               </div>
-              <span className="text-center text-sm text-gray-300">
+              <span className="text-center text-sm text-gray-400">
                 To support you during the pandemic super pro features are free
                 until March 31st.
               </span>

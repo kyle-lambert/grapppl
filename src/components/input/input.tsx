@@ -10,7 +10,7 @@ import { cn } from "@/utils/cn";
 import { StylePropOverides } from "@/utils/types";
 
 const inputStyles = cva(
-  "w-full rounded-xl border border-gray-200 bg-white leading-5 text-gray-800 placeholder-gray-300 shadow-sm outline-none transition-all invalid:border-red-500 invalid:ring-red-100 invalid:hover:border-red-600 focus:ring invalid:focus:border-red-600 invalid:focus:ring-red-200 enabled:hover:border-gray-300 enabled:focus:border-gray-300 enabled:focus:ring-gray-200 disabled:cursor-not-allowed disabled:bg-gray-100 disabled:text-gray-400",
+  "w-full rounded-xl border-2 border-transparent bg-gray-50 leading-5 text-gray-900 placeholder-gray-300 outline-none transition-all invalid:border-red-500 invalid:hover:border-red-500 focus:bg-white invalid:focus:border-red-500 invalid:focus:ring invalid:focus:ring-red-200 enabled:hover:border-gray-900 enabled:focus:border-gray-950 disabled:cursor-not-allowed disabled:opacity-50",
   {
     variants: {
       size: {
