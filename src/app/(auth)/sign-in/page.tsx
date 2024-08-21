@@ -1,11 +1,29 @@
+"use client";
+
 import React from "react";
 import { Button } from "@/components/button";
 import { TextField } from "@/components/form";
 import { Input } from "@/components/input";
 import GoogleIcon from "@/components/icons/google";
 import FacebookIcon from "@/components/icons/facebook";
+import { Controller, useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+import { signIn } from "@/app/(auth)/actions";
+
+const validationSchema = z.object({
+  email: z.string().email(),
+});
 
 export default function SignIn() {
+  const methods = useForm<z.infer<typeof validationSchema>>({
+    resolver: zodResolver(validationSchema),
+    defaultValues: {
+      email: "",
+    },
+    mode: "onChange",
+  });
+
   return (
     <div className="grid min-h-[100dvh] md:grid-cols-2">
       <div className="flex justify-center overflow-y-hidden">
@@ -30,16 +48,46 @@ export default function SignIn() {
                 <span className="h-[2px] flex-1 rounded-full bg-gradient-to-r from-gray-100" />
               </div>
 
-              <div className="flex flex-col gap-4">
-                <TextField>
-                  <Input placeholder="donald@example.com" />
-                </TextField>
-                <Button>Continue</Button>
-              </div>
-              <span className="text-center text-sm text-gray-400">
-                To support you during the pandemic super pro features are free
-                until March 31st.
-              </span>
+              <form
+                onSubmit={methods.handleSubmit(async (formValues) => {
+                  const response = await signIn(formValues);
+                  console.log("[client]", response);
+                  methods.reset();
+                })}
+              >
+                <div className="flex flex-col gap-4">
+                  <Controller
+                    control={methods.control}
+                    name="email"
+                    render={({ field, fieldState }) => (
+                      <TextField
+                        aria-label="Email"
+                        name={field.name}
+                        value={field.value}
+                        onChange={field.onChange}
+                        onBlur={field.onBlur}
+                        isDisabled={field.disabled}
+                        isInvalid={fieldState.invalid}
+                      >
+                        <Input
+                          ref={field.ref}
+                          placeholder="Enter email address"
+                        />
+                      </TextField>
+                    )}
+                  />
+                  <Button
+                    isDisabled={methods.formState.isSubmitting}
+                    type="submit"
+                  >
+                    {methods.formState.isSubmitting ? "Submitting" : "Continue"}
+                  </Button>
+                </div>
+              </form>
+            </div>
+            <div className="text-center text-sm text-gray-400">
+              To support you during the pandemic super pro features are free
+              until March 31st.
             </div>
           </div>
         </div>
