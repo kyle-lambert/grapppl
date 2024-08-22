@@ -9,7 +9,6 @@ import FacebookIcon from "@/components/icons/facebook";
 import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { signIn } from "@/app/(auth)/actions";
 
 const validationSchema = z.object({
   email: z.string().email(),
@@ -50,8 +49,7 @@ export default function SignIn() {
 
               <form
                 onSubmit={methods.handleSubmit(async (formValues) => {
-                  const response = await signIn(formValues);
-                  console.log("[client]", response);
+                  console.log("[client]");
                   methods.reset();
                 })}
               >

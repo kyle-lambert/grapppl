@@ -10,13 +10,7 @@ import {
   Text,
 } from "@react-email/components";
 
-interface LoginCodeEmailProps {
-  validationCode?: string;
-}
-
-export default function LoginCodeEmail({
-  validationCode,
-}: LoginCodeEmailProps) {
+export default function MagicAuthCodeEmail(code: string) {
   return (
     <Html>
       <Head />
@@ -25,25 +19,21 @@ export default function LoginCodeEmail({
         <Container style={container}>
           <Heading style={heading}>Your login code for Grapppl</Heading>
           <Section style={buttonContainer}>
-            <Button style={button} href="https://linear.app">
+            <Button style={button} href="https://grapppl.app">
               Login to Grapppl
             </Button>
           </Section>
           <Text style={paragraph}>
-            This link and code will only be valid for the next 5 minutes. If the
-            link does not work, you can use the login verification code
+            This link and code will only be valid for the next 10 minutes. If
+            the link does not work, you can use the login verification code
             directly:
           </Text>
-          <code style={code}>{validationCode}</code>
+          <code style={verificationCode}>{code}</code>
         </Container>
       </Body>
     </Html>
   );
 }
-
-LoginCodeEmail.PreviewProps = {
-  validationCode: "grapppl-tt226-5398",
-} as LoginCodeEmailProps;
 
 const main = {
   backgroundColor: "#ffffff",
@@ -89,17 +79,7 @@ const button = {
   padding: "11px 23px",
 };
 
-const reportLink = {
-  fontSize: "14px",
-  color: "#b4becc",
-};
-
-const hr = {
-  borderColor: "#dfe1e4",
-  margin: "42px 0 26px",
-};
-
-const code = {
+const verificationCode = {
   fontFamily: "monospace",
   fontWeight: "700",
   padding: "1px 4px",
